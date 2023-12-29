@@ -1,10 +1,6 @@
 from flask import Flask, render_template, jsonify
-from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///applications.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Add this line to suppress a warning
-db = SQLAlchemy(app)
 
 JOBS=[
   {
