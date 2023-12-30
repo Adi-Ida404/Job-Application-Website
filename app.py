@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, render_template
-from database import load_job_from_db
+from flask import Flask, jsonify, render_template, request
+from sqlalchemy.util.langhelpers import monkeypatch_proxied_specials
+from database import add_application_to_db, load_job_from_db
 
 app = Flask(__name__)
 JOBS=[
@@ -45,6 +46,13 @@ def home():
 def show_job(id):
   job = load_job_from_db(id)
   return render_template("jobpage.html", job=job)
-
+  
+@app.route("/jobs/<id>/apply",  methods=['POST'])
+def apply_job(id):
+  data = request.form
+  job = load_job_from_db(id)
+  add_application_to_db(id, data)
+  return render_template("applicationsub.html", application=data, job=job)
+                         
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
