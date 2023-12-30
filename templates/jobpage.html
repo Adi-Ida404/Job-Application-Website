@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'bootstrap.html' %}
+    <style>
+      body {
+          background-color: #E5E4E2;
+          padding : 30px
+      }
+      .image2{
+          border-radius: 15px;
+          height: 400px;
+          width: 550px;
+          object-fit: cover;
+          box-shadow: 8px 8px 3px #8B8589;
+      }
+      @media screen and (max-width: 600px) {
+        body {
+          font-size: 5px;
+        }
+
+        .container {
+          width: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .tiles .tile img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          backface-visibility: hidden;
+        }
+      }
+
+    </style>
+    <title>{{job.title}} - Aditya Inc.</title>
+  </head>
+
+  <body>
+    
+    {% include 'nav.html' %}
+    <div style="margin-top:50px;">
+      <h1 class="text-center mt-2 mb-4">Aditya Inc.</h1>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-6" style="background: white;">
+        <div>
+          <p><h5>{{job.title}}:</h5></p>
+          <h5>Location:</h5>
+          <p class="lead">{{job.location}}</p>
+          <h5>Salary:</h5>
+          <p class="lead">{{job.currency}} {{job.salary}}</p>
+          <h5>Responsibilities:</h5>
+          <p class="lead">{{job.responsibilities}}</p>
+          <h5>Requirements:</h5>
+          <p class="lead">{{job.requirements}}</p>
+        </div>
+      </div>
+      <div class="col md-6">
+        <img class="image2" align='center' src="https://projectadi.asinghrawat2003.repl.co/static/project/banner3.jpg" alt="office">
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-mC2eRHv1lLq5RtlfC3z5tCzytKGMp9j8Z1Cwe3rI1StT4yAjxzgc+DTTPhrRBCBx" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8c+NGp7tG1z8g7doRLHi6sibVcO5/w1" crossorigin="anonymous"></script>
+  </body>
+</html>
+  
